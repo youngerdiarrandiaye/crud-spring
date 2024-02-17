@@ -18,10 +18,10 @@ services:
 
 
   back-end:
-    image: ngorseck/logica-rh:0.0.1-SNAPSHOT
+    image: youssoudiarra/crud-student:v.1.1
     container_name: crud-student-backend
     ports:
-      - 8082:8082
+      - 8085:8085
     restart: unless-stopped
     environment:
       spring.datasource.url: jdbc:mysql://mysql:3306/crud-db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
