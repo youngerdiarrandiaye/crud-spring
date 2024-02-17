@@ -15,8 +15,10 @@ services:
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
-      test: mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD
-
+      test: ["CMD-SHELL", "mysqladmin ping -h 127.0.0.1 -u $$MYSQL_USER --password=$$MYSQL_PASSWORD"]
+      interval: 10s
+      timeout: 5s
+      retries: 3
 
   back-end:
     image: youssoudiarra/crud-student:v.1.1
@@ -35,7 +37,6 @@ services:
       - mysql
     profiles:
       - all
-
 
   redis:
     image: redis:5.0.3-alpine
