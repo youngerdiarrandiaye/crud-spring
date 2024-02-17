@@ -40,6 +40,12 @@
 			<artifactId>h2</artifactId>
 			<scope>runtime</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.testcontainers</groupId>
+			<artifactId>mysql</artifactId>
+			<version>1.16.3</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -71,6 +77,16 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-resources-plugin</artifactId>
+				<configuration>
+					<delimiters>
+						<delimiter>@</delimiter>
+					</delimiters>
+					<useDefaultDelimiters>false</useDefaultDelimiters>
 				</configuration>
 			</plugin>
 			<!-- plugin for github action -->
