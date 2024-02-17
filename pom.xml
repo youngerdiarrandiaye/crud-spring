@@ -10,6 +10,7 @@
 	</parent>
 	<groupId>com.youdev</groupId>
 	<artifactId>crud-student</artifactId>
+	<packaging>jar</packaging>
 	<version>v.1.1</version>
 	<name>crud-student</name>
 	<description>test webservices crud</description>
@@ -52,7 +53,20 @@
 	</dependencies>
 
 	<build>
+		<finalName>lab-crud-spring-action-docker-hub</finalName>
 		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+				</configuration>
+			</plugin>
 			<!-- plugin for github action -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
@@ -75,18 +89,6 @@
 							<url>https://index.docker.io/v1</url>
 						</publishRegistry>
 					</docker>
-				</configuration>
-			</plugin>
-			<plugin>
-				<groupId>org.springframework.boot</groupId>
-				<artifactId>spring-boot-maven-plugin</artifactId>
-				<configuration>
-					<excludes>
-						<exclude>
-							<groupId>org.projectlombok</groupId>
-							<artifactId>lombok</artifactId>
-						</exclude>
-					</excludes>
 				</configuration>
 			</plugin>
 		</plugins>
