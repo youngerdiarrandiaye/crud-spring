@@ -9,12 +9,14 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.youdev</groupId>
-	<artifactId>crud</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
-	<name>crud</name>
+	<artifactId>crud-student</artifactId>
+	<version>crud-student-1</version>
+	<name>crud-student-1</name>
 	<description>test webservices crud</description>
 	<properties>
 		<java.version>17</java.version>
+		<docker.user/>
+		<docker.token/>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -51,6 +53,30 @@
 
 	<build>
 		<plugins>
+			<!-- plugin for github action -->
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<excludes>
+						<exclude>
+							<groupId>org.projectlombok</groupId>
+							<artifactId>lombok</artifactId>
+						</exclude>
+					</excludes>
+					<image>
+						<!-- youssoudiarra = username du compte docker hub-->
+						<name>youssoudiarra/${project.artifactId}:${project.version}</name>
+					</image>
+					<docker>
+						<publishRegistry>
+							<username>${docker.user}</username>
+							<password>${docker.token}</password>
+							<url>https://index.docker.io/v1</url>
+						</publishRegistry>
+					</docker>
+				</configuration>
+			</plugin>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

@@ -4,13 +4,19 @@ import com.youdev.crud.dtos.Studentdto;
 import com.youdev.crud.entities.Student;
 import com.youdev.crud.mapping.StudentMapper;
 import com.youdev.crud.repository.StudentRepository;
+import org.springframework.cache.annotation.CacheConfig;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@CacheConfig(cacheNames = "students")
 public class ServicesImpl implements Studentservices{
     private final StudentRepository studentRepository;
     private StudentMapper studentMapper;
@@ -21,6 +27,7 @@ public class ServicesImpl implements Studentservices{
     }
 
     @Override
+    @Transactional(readOnly = true)
     public List<Studentdto> getAllStudents() {
         List<Student> students = studentRepository.findAll();
         return students.stream()
@@ -29,12 +36,15 @@ public class ServicesImpl implements Studentservices{
     }
 
     @Override
+    @Cacheable(key = "#id")
+    @Transactional(readOnly = true)
     public Studentdto getStudentsById(Long id) {
         Optional<Student> StudentOptional = studentRepository.findById(id);
         return StudentOptional.map(studentMapper::fromStudent).orElse(null);
     }
 
     @Override
+    @Transactional
     public Studentdto createStudents(Studentdto studentdto) {
         Student student = studentMapper.fromStudentDTO(studentdto);
         Student savedStudent = studentRepository.save(student);
@@ -42,6 +52,8 @@ public class ServicesImpl implements Studentservices{
     }
 
     @Override
+    @CachePut(key = "#id")
+    @Transactional
     public Studentdto updateStudents(Long id, Studentdto studentdto) {
         Optional<Student> StudentOptional = studentRepository.findById(id);
         if (StudentOptional.isPresent()) {
@@ -58,6 +70,8 @@ public class ServicesImpl implements Studentservices{
     }
 
     @Override
+    @CacheEvict(key = "#id")
+    @Transactional
     public void deleteStudents(Long id) {
         studentRepository.deleteById(id);
     }

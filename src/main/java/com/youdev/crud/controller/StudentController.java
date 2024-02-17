@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("")
+@RequestMapping("/students")
 public class StudentController {
     private final Studentservices studentservices;
 
@@ -17,7 +17,7 @@ public class StudentController {
         this.studentservices = studentservices;
     }
 
-    @GetMapping("/studentslist")
+    @GetMapping("/studentsList")
     public List<Studentdto> getAllStudents() {
         List<Studentdto> studentdtoList = studentservices.getAllStudents();
         return studentdtoList;
@@ -31,7 +31,7 @@ public class StudentController {
     }
 
     // Créer un nouveau Batiment
-    @PostMapping("/student")
+    @PostMapping("/createStudent")
     public Studentdto createStudents(@RequestBody Studentdto studentdto) {
         return  studentservices.createStudents(studentdto);
     }
