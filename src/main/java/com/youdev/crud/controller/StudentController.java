@@ -2,10 +2,7 @@ package com.youdev.crud.controller;
 
 import com.youdev.crud.dtos.Studentdto;
 import com.youdev.crud.services.Studentservices;
-import org.springframework.ui.Model;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
-
 import java.util.List;
 
 @RestController
