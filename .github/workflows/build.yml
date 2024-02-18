@@ -5,6 +5,7 @@ on:
     branches: [ main, release ]
     paths-ignore:
       - '**/README.md'
+      - '**/docker-compose.yml
 jobs:
   build:
     runs-on: ubuntu-latest
