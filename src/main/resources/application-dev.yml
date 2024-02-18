@@ -3,9 +3,9 @@ server:
 
 spring:
   datasource:
-    password:
-    url: jdbc:mysql://localhost:3307/spring-training?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
     username: root
+    password:
+    url: jdbc:mysql://localhost:3306/spring-training?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
