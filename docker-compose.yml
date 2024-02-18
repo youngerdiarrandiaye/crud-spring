@@ -11,7 +11,7 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     ports:
-      - "3307:3306" # Changer de 3307 à 3306
+      - "3307:3306"
     networks:
       - app-network
     volumes:
@@ -43,7 +43,7 @@ services:
     image: redis:5.0.3-alpine
     container_name: crud-student-redis
     ports:
-      - "6379:6379" # Pas de changement nécessaire
+      - "6379:6379"
 
 volumes:
   mysql_data:
