@@ -2,7 +2,7 @@
 spring:
   datasource:
     password: user
-    url: jdbc:mysql://localhost:3307/crud-db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://mysql:3307/crud-db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
     username: user
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
