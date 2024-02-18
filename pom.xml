@@ -46,6 +46,11 @@
 			<version>1.16.3</version>
 			<scope>test</scope>
 		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!-- mysql-connector-java -->
 		<dependency>
 			<groupId>mysql</groupId>
@@ -59,15 +64,21 @@
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
+			<artifactId>spring-boot-starter-cache</artifactId>
 		</dependency>
 	</dependencies>
 
 	<build>
 		<finalName>lab-crud-spring-action-docker-hub</finalName>
 		<plugins>
-			<!-- plugin for github action -->
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.8</source>
+					<target>1.8</target>
+				</configuration>
+			</plugin>
+			<!-- plugin for  action -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
