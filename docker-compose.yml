@@ -3,7 +3,7 @@ version: '3.9'
 services:
   mysql:
     image: mysql:8.0
-    restart: always  # Redémarrage automatique en cas d'échec
+    restart: always
     container_name: mysql-crud-student
     environment:
       MYSQL_ROOT_PASSWORD: root
@@ -11,9 +11,9 @@ services:
       MYSQL_USER: user
       MYSQL_PASSWORD: user
     ports:
-      - 3307:3306
+      - "3307:3306" # Changer de 3307 à 3306
     networks:
-      - app-network  # Utilisation du réseau personnalisé
+      - app-network
     volumes:
       - mysql_data:/var/lib/mysql
     healthcheck:
@@ -23,9 +23,9 @@ services:
     image: youssoudiarra/crud-student:v.1.1
     container_name: crud-student-backend
     ports:
-      - 8085:8085
+      - "8085:8085" # Pas de changement nécessaire
     networks:
-      - app-network  # Utilisation du réseau personnalisé
+      - app-network
     restart: unless-stopped
     environment:
       spring.datasource.url: jdbc:mysql://mysql:3306/crud-db?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
@@ -43,7 +43,7 @@ services:
     image: redis:5.0.3-alpine
     container_name: crud-student-redis
     ports:
-      - 6379:6379
+      - "6379:6379" # Pas de changement nécessaire
 
 volumes:
   mysql_data:
