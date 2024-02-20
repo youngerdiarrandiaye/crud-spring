@@ -22,7 +22,7 @@ services:
     image: youssoudiarra/crud-student:v.1.1
     container_name: spring-rest-backend
     ports:
-      - 9090:8080
+      - 9090:9090
     restart: unless-stopped
     environment:
       spring.datasource.url: jdbc:mysql://mysql:3306/spring-training?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
