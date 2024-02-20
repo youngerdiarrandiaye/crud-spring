@@ -16,7 +16,7 @@ spring:
   datasource:
     username: user
     password: user
-    url: jdbc:mysql://localhost:3306/spring-training?allowPublicKeyRetrieval=true&autoReconnect=true&useSSL=false
+    url: jdbc:mysql://localhost:3306/crud-db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
   jpa:
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
