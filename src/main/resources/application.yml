@@ -3,7 +3,7 @@ server:
 
 spring:
   datasource:
-    password:
+    password: root
     url: jdbc:mysql://127.0.0.1:3306/crud-db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
     username: root
   application:
