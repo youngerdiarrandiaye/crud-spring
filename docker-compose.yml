@@ -22,7 +22,7 @@ services:
     image: youssoudiarra/crud-student:v.1.1
     container_name: spring-rest-backend
     ports:
-      - 9090:9090
+      - 8083:8083
     #restart: unless-stopped
     environment:
       SPRING_DATASOURCE_URL: jdbc:mysql://mysql:3306/crud-db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
