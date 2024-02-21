@@ -6,6 +6,7 @@ on:
     paths-ignore:
       - '**/README.md'
       - '**/docker-compose.yml'
+      - '**/application.yml'
 
 jobs:
   build:
