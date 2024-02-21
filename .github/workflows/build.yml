@@ -6,7 +6,7 @@ on:
     paths-ignore:
       - '**/README.md'
       - '**/docker-compose.yml'
-
+#pour ne pas demmarer docker commpose
 jobs:
   build:
     runs-on: ubuntu-latest
