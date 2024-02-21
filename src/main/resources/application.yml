@@ -1,14 +1,15 @@
-#server:
-#  port: 8083
-#
-#spring:
-#  datasource:
-#    password:
-#    url: jdbc:mysql://127.0.0.1:3306/crud-db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
-#    username: root
-#  application:
-#    name: spring-crud
-#
-#
-#
-#
+server:
+  port: 8083
+
+spring:
+  profiles: dev
+  datasource:
+    password:
+    url: jdbc:mysql://127.0.0.1:3306/crud-db?createDatabaseIfNotExist=true&useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC
+    username: root
+  application:
+    name: spring-crud
+
+
+
+
