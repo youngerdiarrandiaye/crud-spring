@@ -11,5 +11,5 @@ spring:
     open-in-view: false
     hibernate:
       use-new-id-generator-mappings: false
-
+#pour le deploiement sur docker meme port avec le docker compose et le username doit etre identique
 

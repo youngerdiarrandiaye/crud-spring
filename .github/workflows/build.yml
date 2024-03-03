@@ -1,12 +1,10 @@
 name: build-and-push-image-docker-hub
-
 on:
   push:
     branches: [ main, release ]
     paths-ignore:
       - '**/README.md'
-
-
+      - '**/docker-compose.yml'
 jobs:
   build:
     runs-on: ubuntu-latest
